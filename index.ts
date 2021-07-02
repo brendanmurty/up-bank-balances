@@ -9,4 +9,4 @@ await fetch(ApiUrlAccounts, {
       'Authorization': 'Bearer ' + EnvToken 
     }
   }).then(response => response.json())
-  .then(data => console.log(data));
+  .then(data => { for (const index in data.data) { let AccountInfo = data.data[index].attributes; console.log(" - " + AccountInfo.displayName + ": " + AccountInfo.balance.currencyCode + " " + AccountInfo.balance.value); } });
