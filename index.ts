@@ -2,6 +2,11 @@ import "https://deno.land/x/dotenv/load.ts";
 
 const EnvToken: string = Deno.env.get("UP_PERSONAL_ACCESS_TOKEN") || "";
 
+if (EnvToken == '') { 
+  console.log('Could not find token in .env, exiting.');
+  Deno.exit(1);
+}
+
 const ApiUrlAccounts: string = 'https://api.up.com.au/api/v1/accounts';
 
 await fetch(ApiUrlAccounts, {
