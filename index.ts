@@ -15,6 +15,6 @@ await fetch(ApiUrlAccounts, {
   for (const index in data.data) {
     let AccountInfo = data.data[index].attributes;  
 
-    console.log(" - " + AccountInfo.displayName + ": " + AccountInfo.balance.currencyCode + " " + AccountInfo.balance.value);
+    console.log(" - " + AccountInfo.displayName.trim() + ": $" + AccountInfo.balance.value);
   }
 });
