@@ -9,12 +9,15 @@ if (EnvToken == '') {
 
 const ApiUrlAccounts: string = 'https://api.up.com.au/api/v1/accounts';
 
-await fetch(ApiUrlAccounts, {
+await fetch(
+  ApiUrlAccounts,
+  {
     method: 'GET',
     headers: {
       'Authorization': 'Bearer ' + EnvToken 
     }
-  })
+  }
+)
 .then(response => response.json())
 .then(data => {
   for (const index in data.data) {
