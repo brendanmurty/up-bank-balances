@@ -9,7 +9,7 @@ if (EnvToken == "") {
 
 const ApiUrl: string = "https://api.up.com.au/api/v1";
 
-console.log("\nAccounts:\n");
+console.log("\nAll Accounts:\n");
 
 await fetch(
   ApiUrl + "/accounts",
@@ -35,10 +35,10 @@ await fetch(
   }
 });
 
-console.log("\nTransactions:\n");
+console.log("\nRecent Transactions:\n");
 
 await fetch(
-  ApiUrl + "/transactions?page[size]=5",
+  ApiUrl + "/transactions?page[size]=10",
   {
     method: "GET",
     headers: {
@@ -61,4 +61,4 @@ await fetch(
   }
 })
 
-console.log("\n");
+console.log("");
