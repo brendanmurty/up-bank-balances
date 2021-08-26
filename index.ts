@@ -9,6 +9,14 @@ if (EnvToken == "") {
 
 const ApiUrl: string = "https://api.up.com.au/api/v1";
 
+const ColourReset: string = "\x1b[0m";
+const ColourRed: string = "\x1b[31m";
+const ColourGreen: string = "\x1b[32m";
+const ColourYellow: string = "\x1b[33m";
+const ColourBlue: string = "\x1b[34m";
+const ColourMagenta: string = "\x1b[35m";
+const ColourCyan: string = "\x1b[36m";
+
 console.log("\nAll Accounts:\n");
 
 await fetch(
@@ -25,10 +33,15 @@ await fetch(
   for (const index in data.data) {
     let AccountId = data.data[index].id;  
     let AccountInfo = data.data[index].attributes;  
+    let AccountDisplayName = ColourMagenta + AccountInfo.displayName.trim() + ColourReset;
+
+    if (AccountInfo.accountType == "SAVER") {
+      AccountDisplayName = ColourBlue + AccountInfo.displayName.trim() + ColourReset;
+    }
 
     console.log(
       " - " + 
-      AccountInfo.displayName.trim() + 
+      AccountDisplayName + 
       ": $" + 
       AccountInfo.balance.value
     );
@@ -51,6 +64,14 @@ await fetch(
   for (const index in data.data) {
     let TransactionInfo = data.data[index].attributes
     let TransactionAmount = ("$" + TransactionInfo.amount.value).replace("$-", "-$");
+
+    if (TransactionAmount.indexOf("-$") > -1) {
+      // This transaction is a debit
+      TransactionAmount = ColourRed + TransactionAmount + ColourReset;
+    } else {
+      // This transaction is a credit
+      TransactionAmount = ColourGreen + TransactionAmount + ColourReset;
+    }
 
     console.log(
       " - " + 
