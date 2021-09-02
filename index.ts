@@ -2,7 +2,7 @@ import { config } from "https://deno.land/x/dotenv@v2.0.0/mod.ts";
 import { posix, win32, dirname } from "https://deno.land/std@0.106.0/path/mod.ts";
 
 // Load the configuration values from files in the same directory as this script,
-// loading it this way allows for the run from any directory instead of just this directory.
+// loading it this way allows for the script to be run from any directory instead of just this directory.
 if (Deno.build.os == "windows") {
   let ScriptDirectory = dirname(win32.fromFileUrl(import.meta.url));
   config({
