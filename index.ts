@@ -1,18 +1,25 @@
 import { config } from "https://deno.land/x/dotenv@v2.0.0/mod.ts";
-import * as path from "https://deno.land/std/path/mod.ts";
-import makeloc from "https://deno.land/x/dirname@1.1.2/mod.ts";
+import { posix, win32, dirname } from "https://deno.land/std@0.106.0/path/mod.ts";
 
-const { __dirname, __filename } = makeloc(import.meta);
-
-// Load the configuration values from a file called ".env"
-// in the same directory as this script. Loading it this way
-// allows for the run from any directory instead of just this directory.
-await config({
-  path: path.join(__dirname, ".env"),
-  export: true,
-  example: path.join(__dirname, ".env.example"),
-  defaults: path.join(__dirname, ".env.example")
-});
+// Load the configuration values from files in the same directory as this script,
+// loading it this way allows for the run from any directory instead of just this directory.
+if (Deno.build.os == "windows") {
+  let ScriptDirectory = dirname(win32.fromFileUrl(import.meta.url));
+  config({
+    path: win32.join(ScriptDirectory, ".env"),
+    export: true,
+    example: win32.join(ScriptDirectory, ".env.example"),
+    defaults: win32.join(ScriptDirectory, ".env.example")
+  });
+} else {
+  let ScriptDirectory = dirname(posix.fromFileUrl(import.meta.url));
+  config({
+    path: posix.join(ScriptDirectory, ".env"),
+    export: true,
+    example: posix.join(ScriptDirectory, ".env.example"),
+    defaults: posix.join(ScriptDirectory, ".env.example")
+  });
+}
 
 const EnvToken: string = Deno.env.get("UP_PERSONAL_ACCESS_TOKEN") || "";
 
