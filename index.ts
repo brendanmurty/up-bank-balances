@@ -57,11 +57,11 @@ await fetch(
   for (const index in data.data) {
     const AccountInfo = data.data[index].attributes;  
 
-    // Default to showing accounts in magenta coloured text
+    // Default to showing accounts in cyan coloured text
     let AccountDisplayName = ColourCyan + AccountInfo.displayName.trim() + ColourReset;
 
     if (AccountInfo.accountType == "SAVER") {
-      // Show saver accounts in blue coloured text
+      // Show saver accounts in yellow coloured text
       AccountDisplayName = ColourYellow + AccountInfo.displayName.trim() + ColourReset;
     }
 
