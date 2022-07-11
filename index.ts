@@ -1,10 +1,10 @@
-import { config } from "https://deno.land/x/dotenv@v2.0.0/mod.ts";
-import { posix, win32, dirname } from "https://deno.land/std@0.106.0/path/mod.ts";
+import { config } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
+import { posix, win32, dirname } from "https://deno.land/std@0.147.0/path/mod.ts";
 
 // Load the configuration values from files in the same directory as this script,
 // loading it this way allows for the script to be run from any directory instead of just this directory.
 if (Deno.build.os == "windows") {
-  let ScriptDirectory = dirname(win32.fromFileUrl(import.meta.url));
+  const ScriptDirectory = dirname(win32.fromFileUrl(import.meta.url));
   config({
     path: win32.join(ScriptDirectory, ".env"),
     export: true,
@@ -12,7 +12,7 @@ if (Deno.build.os == "windows") {
     defaults: win32.join(ScriptDirectory, ".env.example")
   });
 } else {
-  let ScriptDirectory = dirname(posix.fromFileUrl(import.meta.url));
+  const ScriptDirectory = dirname(posix.fromFileUrl(import.meta.url));
   config({
     path: posix.join(ScriptDirectory, ".env"),
     export: true,
@@ -30,15 +30,15 @@ if (EnvToken == "") {
   Deno.exit(1);
 }
 
-const ApiUrl: string = "https://api.up.com.au/api/v1";
+const ApiUrl = "https://api.up.com.au/api/v1";
 
-const ColourReset: string = "\x1b[0m";
-const ColourRed: string = "\x1b[31m";
-const ColourGreen: string = "\x1b[32m";
-const ColourYellow: string = "\x1b[33m";
-const ColourBlue: string = "\x1b[34m";
-const ColourMagenta: string = "\x1b[35m";
-const ColourCyan: string = "\x1b[36m";
+const ColourReset = "\x1b[0m";
+const ColourRed = "\x1b[31m";
+const ColourGreen = "\x1b[32m";
+const ColourYellow = "\x1b[33m";
+const ColourBlue = "\x1b[34m";
+const ColourMagenta = "\x1b[35m";
+const ColourCyan = "\x1b[36m";
 
 console.log("\nAll Accounts:\n");
 
@@ -55,8 +55,7 @@ await fetch(
 .then(response => response.json())
 .then(data => {
   for (const index in data.data) {
-    let AccountId = data.data[index].id;  
-    let AccountInfo = data.data[index].attributes;  
+    const AccountInfo = data.data[index].attributes;  
 
     // Default to showing accounts in magenta coloured text
     let AccountDisplayName = ColourMagenta + AccountInfo.displayName.trim() + ColourReset;
@@ -91,7 +90,7 @@ await fetch(
 .then(response => response.json())
 .then(data => {
   for (const index in data.data) {
-    let TransactionInfo = data.data[index].attributes
+    const TransactionInfo = data.data[index].attributes
 
     // Fix the output of debit transactions
     let TransactionAmount = (CurrencySymbol + TransactionInfo.amount.value).replace(CurrencySymbol + "-", "-" + CurrencySymbol);
