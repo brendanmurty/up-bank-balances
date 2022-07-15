@@ -11,13 +11,13 @@ A small script to show your [Up bank](https://up.com.au/) account balance(s).
 
 ## Usage
 
-# Via the terminal
+### Terminal
 
 ```
 deno run --allow-net --allow-read --allow-env cli.ts
 ```
 
-# Via the local webserver
+### Local webserver
 
 ```
 deno run --allow-net --allow-read --allow-env server.ts
