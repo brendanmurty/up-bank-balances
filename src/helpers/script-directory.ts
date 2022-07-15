@@ -4,10 +4,8 @@ export function GetScriptDirectory(): string {
   // Get a suitable absolute path string for the directory that the
   // top level scripts are in.
   if (Deno.build.os == "windows") {
-    const ScriptDirectory = dirname(dirname(dirname(win32.fromFileUrl(import.meta.url))));
-    return ScriptDirectory;
-  } else {
-    const ScriptDirectory = dirname(dirname(dirname(posix.fromFileUrl(import.meta.url))));
-    return ScriptDirectory;
+    return dirname(dirname(dirname(win32.fromFileUrl(import.meta.url))));
   }
+
+  return dirname(dirname(dirname(posix.fromFileUrl(import.meta.url))));
 }
