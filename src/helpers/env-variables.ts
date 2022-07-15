@@ -1,11 +1,13 @@
 import { config } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
-import { posix, win32, dirname } from "https://deno.land/std@0.147.0/path/mod.ts";
+import { posix, win32 } from "https://deno.land/std@0.147.0/path/mod.ts";
+import { GetScriptDirectory } from "./script-directory.ts";
 
 export function GetEnvVariable(VariableName: string): string {
-  // Load the configuration values from files in the same directory as this script,
-  // loading it this way allows for the script to be run from any directory instead of just this directory.
+  // Load the configuration values from files in the same directory as the main scripts,
+  // loading it this way allows for the script to be run from any directory instead
+  // of just this directory.
+  const ScriptDirectory = GetScriptDirectory();
   if (Deno.build.os == "windows") {
-    const ScriptDirectory = dirname(dirname(dirname(win32.fromFileUrl(import.meta.url))));
     config({
       path: win32.join(ScriptDirectory, ".env"),
       export: true,
@@ -13,7 +15,6 @@ export function GetEnvVariable(VariableName: string): string {
       defaults: win32.join(ScriptDirectory, ".env.example")
     });
   } else {
-    const ScriptDirectory = dirname(dirname(dirname(posix.fromFileUrl(import.meta.url))));
     config({
       path: posix.join(ScriptDirectory, ".env"),
       export: true,

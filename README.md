@@ -20,7 +20,7 @@ deno run --allow-net --allow-read --allow-env cli.ts
 ### Local webserver
 
 ```
-deno run --allow-net --allow-read --allow-env server.ts
+deno run --allow-net --allow-write --allow-read --allow-env server.ts
 ```
 
 Then open [localhost:8001](http://localhost:8001/) in your web browser.
