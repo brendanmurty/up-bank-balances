@@ -43,7 +43,6 @@ for (const BankAccountSummary of BankAccountsSummary) {
   console.log(BankAccountSummary);
 }
 
-
 // Get a list of the 10 most recent transactions on the main debit account
 
 const MainBankAccountId = await UpBankGetMainAccount(ApiUrl, EnvToken);
