@@ -25,5 +25,5 @@ const MainBankAccountTransactions = await UpBankAccountGetTransactions(ApiUrl, E
 console.log("\nRecent Transactions:\n");
 
 for (const MainBankAccountTransaction of MainBankAccountTransactions) {
-  console.log(" - " + MainBankAccountTransaction);
+  console.log(MainBankAccountTransaction);
 }

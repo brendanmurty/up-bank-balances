@@ -19,7 +19,7 @@ export async function UpBankAccountSummary(ApiUrl: string, EnvToken: string, Cur
     const AccountInfo = ApiResponseJsonData[index].attributes;
     const AccountDisplayName = AccountInfo.displayName.trim();
 
-    FinalOutput.push(" - " + AccountDisplayName + ": " + CurrencySymbol + AccountInfo.balance.value);
+    FinalOutput.push(AccountDisplayName + ": " + CurrencySymbol + AccountInfo.balance.value);
   }
 
   return FinalOutput;

@@ -25,7 +25,7 @@ export async function UpBankAccountGetTransactions(ApiUrl: string, EnvToken: str
       TransactionAmount = "+" + TransactionAmount;
     }
 
-    TransactionList.push(TransactionInfo.description.trim() + ": " + TransactionAmount);
+    TransactionList.push(TransactionAmount + " - " + TransactionInfo.description.trim());
   }
 
   return TransactionList;
