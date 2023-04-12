@@ -1,8 +1,9 @@
-import { ensureDirSync } from "https://deno.land/std@0.148.0/fs/mod.ts";
-import { posix, win32 } from "https://deno.land/std@0.147.0/path/mod.ts";
+import { ensureDirSync } from "std/fs/mod.ts";
+import { posix, win32 } from "std/path/mod.ts";
+import { Application } from "https://deno.land/x/oak@v12.1.0/mod.ts";
+
 import { GetEnvVariable } from "./src/helpers/env-variables.ts";
 import { GetScriptDirectory } from "./src/helpers/script-directory.ts";
-import { Application } from "https://deno.land/x/oak@v10.6.0/mod.ts";
 import { UpBankAccountSummary } from "./src/up-bank-account-summary.ts";
 import { UpBankGetMainAccount } from "./src/up-bank-main-account.ts";
 import { UpBankAccountGetTransactions } from "./src/up-bank-account-transactions.ts";

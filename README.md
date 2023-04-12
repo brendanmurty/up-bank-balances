@@ -14,13 +14,13 @@ A small script to show your [Up bank](https://up.com.au/) account balance(s).
 ### Terminal
 
 ```
-deno run --allow-net --allow-read --allow-env cli.ts
+deno task cli
 ```
 
 ### Local webserver
 
 ```
-deno run --allow-net --allow-write --allow-read --allow-env server.ts
+deno task server
 ```
 
 Then open [localhost:8001](http://localhost:8001/) in your web browser.

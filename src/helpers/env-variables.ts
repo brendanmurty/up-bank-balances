@@ -1,5 +1,6 @@
-import { config } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
-import { posix, win32 } from "https://deno.land/std@0.147.0/path/mod.ts";
+import { config } from "dotenv/mod.ts";
+import { posix, win32 } from "std/path/mod.ts";
+
 import { GetScriptDirectory } from "./script-directory.ts";
 
 export function GetEnvVariable(VariableName: string): string {

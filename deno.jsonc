@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "dotenv/": "https://deno.land/x/dotenv@v3.2.2/",
+    "std/": "https://deno.land/std@0.179.0/"
+  },
+  "tasks": {
+    "cli": "deno run --allow-net --allow-read --allow-env cli.ts",
+    "server": "deno run --allow-net --allow-write --allow-read --allow-env server.ts"
+  }
+}
