@@ -1,4 +1,5 @@
 export async function UpBankAccountGetTransactions(ApiUrl: string, EnvToken: string, CurrencySymbol: string, BankAccountId: string): Promise<string[]> {
+  // deno-lint-ignore prefer-const
   let TransactionList: string[] = [];
 
   const ApiResponse = await fetch(

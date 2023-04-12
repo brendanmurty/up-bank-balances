@@ -1,4 +1,5 @@
 export async function UpBankAccountSummary(ApiUrl: string, EnvToken: string, CurrencySymbol: string): Promise<string[]> {
+  // deno-lint-ignore prefer-const
   let FinalOutput: string[] = [];
 
   // Get a list of all open accounts
