@@ -1,9 +1,8 @@
 import { ensureDirSync } from "std/fs/mod.ts";
 import { posix, win32 } from "std/path/mod.ts";
-import { Application } from "https://deno.land/x/oak@v12.1.0/mod.ts";
+import { Application } from "oak/mod.ts";
 
 import { GetEnvVariable } from "./src/helpers/env-variables.ts";
-import { GetScriptDirectory } from "./src/helpers/script-directory.ts";
 import { UpBankAccountSummary } from "./src/up-bank-account-summary.ts";
 import { UpBankGetMainAccount } from "./src/up-bank-main-account.ts";
 import { UpBankAccountGetTransactions } from "./src/up-bank-account-transactions.ts";
@@ -46,7 +45,7 @@ HTMLcontent += "<ul></body></html>";
 
 // Save the HTML content to the "public" directory and copy over required assets
 
-const ScriptDirectory = GetScriptDirectory();
+const ScriptDirectory = "./";
 let AssetsFavicon = posix.join(ScriptDirectory, 'assets', 'favicon.svg');
 let AssetsStyles = posix.join(ScriptDirectory, 'assets', 'styles.css');
 let PublicDirectory = posix.join(ScriptDirectory, 'public');

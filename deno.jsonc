@@ -1,6 +1,6 @@
 {
   "imports": {
-    "dotenv/": "https://deno.land/x/dotenv@v3.2.2/",
+    "oak/": "https://deno.land/x/oak@v13.1.0/",
     "std/": "https://deno.land/std@0.215.0/"
   },
   "tasks": {
