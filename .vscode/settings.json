@@ -1,5 +1,15 @@
 {
   "deno.enable": true,
-  "deno.unstable": true,
-  "deno.importMap": "./deno.jsonc",
+  "deno.lint": true,
+  "deno.config": "./deno.json",
+  "deno.importMap": "./deno.json",
+  "deno.codeLens.references": true,
+  "editor.defaultFormatter": "denoland.vscode-deno",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2,
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false
+  }
 }

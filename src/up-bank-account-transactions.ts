@@ -1,4 +1,9 @@
-export async function UpBankAccountGetTransactions(ApiUrl: string, EnvToken: string, CurrencySymbol: string, BankAccountId: string): Promise<string[]> {
+export async function UpBankAccountGetTransactions(
+  ApiUrl: string,
+  EnvToken: string,
+  CurrencySymbol: string,
+  BankAccountId: string,
+): Promise<string[]> {
   // deno-lint-ignore prefer-const
   let TransactionList: string[] = [];
 
@@ -7,19 +12,22 @@ export async function UpBankAccountGetTransactions(ApiUrl: string, EnvToken: str
     {
       method: "GET",
       headers: {
-        "Authorization": "Bearer " + EnvToken 
-      }
-    }
+        "Authorization": "Bearer " + EnvToken,
+      },
+    },
   );
 
   const ApiResponseJson = await ApiResponse.json();
   const ApiResponseJsonData = ApiResponseJson.data;
-  
+
   for (const index in ApiResponseJsonData) {
-    const TransactionInfo = ApiResponseJsonData[index].attributes
+    const TransactionInfo = ApiResponseJsonData[index].attributes;
 
     // Fix the output of debit transactions
-    let TransactionAmount = (CurrencySymbol + TransactionInfo.amount.value).replace(CurrencySymbol + "-", "-" + CurrencySymbol);
+    let TransactionAmount = (CurrencySymbol + TransactionInfo.amount.value).replace(
+      CurrencySymbol + "-",
+      "-" + CurrencySymbol,
+    );
 
     if (TransactionAmount.indexOf("-" + CurrencySymbol) == -1) {
       // This transaction is a credit

@@ -5,9 +5,9 @@ export async function UpBankGetMainAccount(ApiUrl: string, EnvToken: string): Pr
     {
       method: "GET",
       headers: {
-        "Authorization": "Bearer " + EnvToken
-      }
-    }
+        "Authorization": "Bearer " + EnvToken,
+      },
+    },
   );
 
   const ApiResponseJson = await ApiResponse.json();

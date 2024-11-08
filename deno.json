@@ -1,0 +1,28 @@
+{
+  "fmt": {
+    "include": [
+      "src/"
+    ],
+    "useTabs": false,
+    "lineWidth": 120,
+    "indentWidth": 2,
+    "semiColons": true
+  },
+  "lint": {
+    "include": [
+      "src/"
+    ]
+  },
+  "imports": {
+    "oak/": "https://deno.land/x/oak@v17.1.3/",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
+    "@std/fs": "jsr:@std/fs@^1.0.5",
+    "@std/path": "jsr:@std/path@^1.0.8"
+  },
+  "nodeModulesDir": "auto",
+  "tasks": {
+    "cli": "deno run --allow-net --allow-read --allow-env src/cli.ts",
+    "lint": "deno lint && deno fmt",
+    "server": "deno run --allow-net --allow-write=./ --allow-read --allow-env src/server.ts"
+  }
+}

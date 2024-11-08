@@ -1,4 +1,8 @@
-export async function UpBankAccountSummary(ApiUrl: string, EnvToken: string, CurrencySymbol: string): Promise<string[]> {
+export async function UpBankAccountSummary(
+  ApiUrl: string,
+  EnvToken: string,
+  CurrencySymbol: string,
+): Promise<string[]> {
   // deno-lint-ignore prefer-const
   let FinalOutput: string[] = [];
 
@@ -8,9 +12,9 @@ export async function UpBankAccountSummary(ApiUrl: string, EnvToken: string, Cur
     {
       method: "GET",
       headers: {
-        "Authorization": "Bearer " + EnvToken
-      }
-    }
+        "Authorization": "Bearer " + EnvToken,
+      },
+    },
   );
 
   const ApiResponseJson = await ApiResponse.json();
