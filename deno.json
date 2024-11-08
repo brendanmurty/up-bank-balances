@@ -22,6 +22,7 @@
   "nodeModulesDir": "auto",
   "tasks": {
     "cli": "deno run --allow-net --allow-read --allow-env src/cli.ts",
+    "deno-upgrade": "deno upgrade stable || true",
     "lint": "deno lint && deno fmt",
     "server": "deno run --allow-net --allow-write=./ --allow-read --allow-env src/server.ts"
   }
