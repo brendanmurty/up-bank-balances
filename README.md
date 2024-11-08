@@ -1,6 +1,6 @@
 # bank-account-balance
 
-A small script to show your [Up bank](https://up.com.au/) account balance(s).
+A small script for [Up bank](https://up.com.au/) users that lists your accounts, balances and recent transactions.
 
 ## Setup
 
