@@ -8,7 +8,7 @@ export async function UpBankAccountGetTransactions(
   let TransactionList: string[] = [];
 
   const ApiResponse = await fetch(
-    ApiUrl + "/accounts/" + BankAccountId + "/transactions?page[size]=10",
+    ApiUrl + "/accounts/" + BankAccountId + "/transactions?page[size]=20",
     {
       method: "GET",
       headers: {
