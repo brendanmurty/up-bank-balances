@@ -37,7 +37,16 @@ export async function UpBankAccountGetTransactions(
       TransactionAmount = "+" + TransactionAmount;
     }
 
-    TransactionList.push(TransactionDate + ": " + TransactionAmount + " - " + TransactionInfo.description.trim());
+    const TransactionItem: string[] = [
+      TransactionAmount + ": ",
+      TransactionInfo.description.trim(),
+      TransactionInfo.message ? ", " + TransactionInfo.message.trim() : "",
+      " (" + TransactionDate + ")",
+    ];
+
+    TransactionList.push(
+      TransactionItem.join(""),
+    );
   }
 
   return TransactionList;
