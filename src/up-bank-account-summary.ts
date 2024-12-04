@@ -22,7 +22,12 @@ export async function UpBankAccountSummary(
 
   for (const index in ApiResponseJsonData) {
     const AccountInfo = ApiResponseJsonData[index].attributes;
-    const AccountDisplayName = AccountInfo.displayName.trim();
+
+    // Remove all emojis from account names
+    const AccountDisplayName = AccountInfo.displayName.replace(
+      /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
+      "",
+    ).trim();
 
     FinalOutput.push(AccountDisplayName + ": " + CurrencySymbol + AccountInfo.balance.value);
   }
