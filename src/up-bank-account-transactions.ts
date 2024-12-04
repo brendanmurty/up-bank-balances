@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export async function UpBankAccountGetTransactions(
   ApiUrl: string,
   EnvToken: string,
@@ -22,6 +24,7 @@ export async function UpBankAccountGetTransactions(
 
   for (const index in ApiResponseJsonData) {
     const TransactionInfo = ApiResponseJsonData[index].attributes;
+    const TransactionDate = moment(TransactionInfo.createdAt).fromNow();
 
     // Fix the output of debit transactions
     let TransactionAmount = (CurrencySymbol + TransactionInfo.amount.value).replace(
@@ -34,7 +37,7 @@ export async function UpBankAccountGetTransactions(
       TransactionAmount = "+" + TransactionAmount;
     }
 
-    TransactionList.push(TransactionAmount + " - " + TransactionInfo.description.trim());
+    TransactionList.push(TransactionDate + ": " + TransactionAmount + " - " + TransactionInfo.description.trim());
   }
 
   return TransactionList;

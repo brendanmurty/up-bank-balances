@@ -14,7 +14,8 @@
     ]
   },
   "imports": {
-    "oak/": "https://deno.land/x/oak@v17.1.3/",
+    "@oak/oak": "jsr:@oak/oak@^17.1.3",
+    "moment": "npm:moment@^2.30.1",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
     "@std/fs": "jsr:@std/fs@^1.0.6",
     "@std/path": "jsr:@std/path@^1.0.8"
