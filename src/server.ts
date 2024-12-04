@@ -1,6 +1,5 @@
-import { ensureDirSync } from "@std/fs";
 import { join } from "@std/path";
-import { Application } from "oak/mod.ts";
+import { Application } from "@oak/oak/application";
 
 import { GetEnvVariable } from "./helpers/env-variables.ts";
 import { UpBankAccountSummary } from "./up-bank-account-summary.ts";
@@ -58,7 +57,6 @@ const PublicIndex = join(ScriptDirectory, "public", "index.html");
 const PublicFavicon = join(ScriptDirectory, "public", "favicon.svg");
 const PublicStyles = join(ScriptDirectory, "public", "styles.css");
 
-ensureDirSync(PublicDirectory);
 Deno.writeTextFileSync(PublicIndex, HTMLcontent);
 Deno.copyFileSync(AssetsFavicon, PublicFavicon);
 Deno.copyFileSync(AssetsStyles, PublicStyles);
