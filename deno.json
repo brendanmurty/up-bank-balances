@@ -14,16 +14,17 @@
     ]
   },
   "imports": {
-    "@oak/oak": "jsr:@oak/oak@^17.1.3",
+    "@oak/oak": "jsr:@oak/oak@^17.1.4",
     "moment": "npm:moment@^2.30.1",
-    "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
-    "@std/fs": "jsr:@std/fs@^1.0.6",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.3",
+    "@std/fs": "jsr:@std/fs@^1.0.15",
     "@std/path": "jsr:@std/path@^1.0.8"
   },
   "nodeModulesDir": "auto",
   "tasks": {
     "cli": "deno run --allow-net --allow-read --allow-env src/cli.ts",
     "deno-upgrade": "deno upgrade stable || true",
+    "deps": "deno outdated --update --latest || true",
     "lint": "deno lint && deno fmt",
     "server": "deno run --allow-net --allow-write=./ --allow-read --allow-env src/server.ts"
   }
