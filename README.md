@@ -8,6 +8,7 @@ A small script for [Up bank](https://up.com.au/) users that lists your accounts,
 2. Setup your [Up Personal Access Token](https://api.up.com.au/getting_started) 
 3. Copy `.env.example` to `.env`
 4. Edit `.env` and set appropriate values for each variable
+5. Create the `public` subdirectory: `mkdir public`
 
 ## Usage
 
