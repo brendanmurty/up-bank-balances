@@ -4,7 +4,7 @@ A small script for [Up bank](https://up.com.au/) users that lists your accounts,
 
 ## Setup
 
-1. [Install Deno 2.0](https://deno.land/#installation)
+1. Install the [latest stable release of Deno](https://deno.com/)
 2. Setup your [Up Personal Access Token](https://api.up.com.au/getting_started) 
 3. Copy `.env.example` to `.env`
 4. Edit `.env` and set appropriate values for each variable
