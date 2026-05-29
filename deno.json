@@ -1,13 +1,19 @@
 {
   "fmt": {
-    "include": ["src/", "deno.json"],
+    "include": [
+      "src/",
+      "deno.json"
+    ],
     "useTabs": false,
     "lineWidth": 120,
     "indentWidth": 2,
     "semiColons": true
   },
   "lint": {
-    "include": ["src/", "deno.json"]
+    "include": [
+      "src/",
+      "deno.json"
+    ]
   },
   "imports": {
     "-/": "./src/",
@@ -20,25 +26,13 @@
   },
   "nodeModulesDir": "none",
   "tasks": {
-    "version-required": {
-      "description": "The Deno version required for this project from the '.denorc' file.",
-      "command": "cat ./.denorc"
-    },
-    "version-check": {
-      "description": "Check the installed Deno version is the same as the required version.",
-      "command": "bash ./.deno/version-check.sh"
-    },
-    "ver": {
-      "description": "Shortcut for version-check",
-      "command": "deno task version-check"
-    },
     "cli": {
       "description": "Show your bank account balances in the terminal.",
-      "command": "deno task ver && deno run --allow-net --allow-read --allow-env src/cli.ts"
+      "command": "deno run --allow-net --allow-read --allow-env src/cli.ts"
     },
     "web": {
       "description": "Start a web server to display your bank account balances in a web browser.",
-      "command": "deno task ver && deno run --allow-net --allow-write=./ --allow-read --allow-env src/web.ts"
+      "command": "deno run --allow-net --allow-write=./ --allow-read --allow-env src/web.ts"
     },
     "deps": {
       "description": "Update the project's third-party dependencies.",
