@@ -6,8 +6,8 @@ A small script for [Up bank](https://up.com.au/) users that lists your accounts,
 
 1. Install the [latest stable release of Deno](https://deno.com/)
 2. Setup your [Up Personal Access Token](https://api.up.com.au/getting_started) 
-3. Copy `.env.example` to `.env`
-4. Edit `.env` and set appropriate values for each variable
+3. Copy `.up.sample.env` to `.up.env`
+4. Edit `.up.env` and set appropriate values for each variable
 5. Create the `public` subdirectory: `mkdir public`
 
 ## Usage
